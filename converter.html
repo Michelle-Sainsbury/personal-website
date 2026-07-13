@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit Converter: km ↔ miles</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 460px;
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: #e94560;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 1.1rem;
+      outline: none;
+      transition: border 0.3s;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"]:focus {
+      border-color: #e94560;
+    }
+
+    /* Hide number input arrows */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .direction-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .direction-group input[type="radio"] {
+      display: none;
+    }
+
+    .direction-group label {
+      flex: 1;
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-transform: none;
+      letter-spacing: 0;
+      transition: all 0.3s;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0;
+    }
+
+    .direction-group input[type="radio"]:checked + label {
+      background: #e94560;
+      border-color: #e94560;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+    }
+
+    .direction-group label:hover {
+      border-color: #e94560;
+      color: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #e94560;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    button:hover {
+      background: #c73652;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .result-box {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-box .result-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .result-box .result-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e94560;
+    }
+
+    .result-box .result-unit {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 4px;
+    }
+
+    .error {
+      margin-top: 16px;
+      color: #ff6b6b;
+      font-size: 0.9rem;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>🌍 Unit Converter</h1>
+  <p class="subtitle">Kilometers &amp; Miles</p>
+
+  <!-- Number Input -->
+  <label for="numInput">Enter a value</label>
+  <input type="number" id="numInput" placeholder="e.g. 100" step="any" />
+
+  <!-- Direction Selection -->
+  <label>Conversion direction</label>
+  <div class="direction-group">
+    <input type="radio" name="direction" id="kmToMi" value="kmToMi" checked />
+    <label for="kmToMi">km → miles</label>
+
+    <input type="radio" name="direction" id="miToKm" value="miToKm" />
+    <label for="miToKm">miles → km</label>
+  </div>
+
+  <!-- Convert Button -->
+  <button onclick="convert()">Convert</button>
+
+  <!-- Error Message -->
+  <p class="error" id="errorMsg">⚠️ Please enter a valid number.</p>
+
+  <!-- Result -->
+  <div class="result-box" id="resultBox">
+    <div class="result-label">Result</div>
+    <div class="result-value" id="resultValue">—</div>
+    <div class="result-unit" id="resultUnit"></div>
+  </div>
+</div>
+
+<script>
+  const KM_TO_MI = 0.621371;
+  const MI_TO_KM = 1.60934;
+
+  function convert() {
+    const input     = document.getElementById('numInput');
+    const errorMsg  = document.getElementById('errorMsg');
+    const resultBox = document.getElementById('resultBox');
+    const resultVal = document.getElementById('resultValue');
+    const resultUnit= document.getElementById('resultUnit');
+
+    // Hide previous results/errors
+    errorMsg.style.display  = 'none';
+    resultBox.style.display = 'none';
+
+    const value = parseFloat(input.value);
+
+    // Validation
+    if (input.value.trim() === '' || isNaN(value)) {
+      errorMsg.style.display = 'block';
+      return;
+    }
+
+    // Get selected direction
+    const direction = document.querySelector('input[name="direction"]:checked').value;
+
+    let converted, fromUnit, toUnit;
+
+    if (direction === 'kmToMi') {
+      converted = value * KM_TO_MI;
+      fromUnit  = 'km';
+      toUnit    = 'miles';
+    } else {
+      converted = value * MI_TO_KM;
+      fromUnit  = 'miles';
+      toUnit    = 'km';
+    }
+
+    // Round to 4 decimal places, strip trailing zeros
+    const rounded = parseFloat(converted.toFixed(4));
+
+    // Display result
+    resultVal.textContent  = rounded.toLocaleString();
+    resultUnit.textContent = `${value} ${fromUnit} = ${rounded.toLocaleString()} ${toUnit}`;
+    resultBox.style.display = 'block';
+  }
+
+  // Allow pressing Enter to convert
+  document.getElementById('numInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') convert();
+  });
+</script>
+
+</body>
+</html>
+How It Works
+| Step | What happens | |------|-------------| | 1 | User types a number into the input field | | 2 | User selects km → miles or miles → km via radio buttons | | 3 | Clicks Convert (or presses Enter) | | 4 | JS validates the input, applies the correct formula, and displays the result |
+
+Key Design Decisions
+Input validation — shows a friendly error if the field is empty or non-numeric
+Enter key support — no need to click the button
+4 decimal precision with trailing zeros stripped (e.g.
+62.1371
+not
+62.1371000
+)
+Animated result box fades in on each conversion for clear visual feedback
+Single file — just open
+index.html
+in any browser, zero dependencies
+M
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <title>Unit Converter: km ↔ miles</title> <style> * { box-sizing: border-box; margin: 0; padding: 0; } body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #fff; } .card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 40px; width: 100%; max-width: 460px; box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3); } h1 { text-align: center; font-size: 1.8rem; margin-bottom: 8px; color: #e94560; } .subtitle { text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 30px; } label { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; } input[type="number"] { width: 100%; padding: 14px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #fff; font-size: 1.1rem; outline: none; transition: border 0.3s; margin-bottom: 20px; } input[type="number"]:focus { border-color: #e94560; } /* Hide number input arrows */ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; } .direction-group { display: flex; gap: 12px; margin-bottom: 24px; } .direction-group input[type="radio"] { display: none; } .direction-group label { flex: 1; text-align: center; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); cursor: pointer; font-size: 0.95rem; text-transform: none; letter-spacing: 0; transition: all 0.3s; color: rgba(255,255,255,0.6); margin-bottom: 0; } .direction-group input[type="radio"]:checked + label { background: #e94560; border-color: #e94560; color: #fff; font-weight: 600; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4); } .direction-group label:hover { border-color: #e94560; color: #fff; } button { width: 100%; padding: 14px; background: #e94560; color: #fff; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; letter-spacing: 0.05em; text-transform: uppercase; } button:hover { background: #c73652; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4); } button:active { transform: translateY(0); } .result-box { margin-top: 24px; padding: 20px; border-radius: 12px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); text-align: center; display: none; animation: fadeIn 0.4s ease; } @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } } .result-box .result-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; } .result-box .result-value { font-size: 2rem; font-weight: 700; color: #e94560; } .result-box .result-unit { font-size: 1rem; color: rgba(255,255,255,0.6); margin-top: 4px; } .error { margin-top: 16px; color: #ff6b6b; font-size: 0.9rem; text-align: center; display: none; } </style> </head> <body> <div class="card"> <h1>🌍 Unit Converter</h1> <p class="subtitle">Kilometers &amp; Miles</p> <!-- Number Input --> <label for="numInput">Enter a value</label> <input type="number" id="numInput" placeholder="e.g. 100" step="any" /> <!-- Direction Selection --> <label>Conversion direction</label> <div class="direction-group"> <input type="radio" name="direction" id="kmToMi" value="kmToMi" checked /> <label for="kmToMi">km → miles</label> <input type="radio" name="direction" id="miToKm" value="miToKm" /> <label for="miToKm">miles → km</label> </div> <!-- Convert Button --> <button onclick="convert()">Convert</button> <!-- Error Message --> <p class="error" id="errorMsg">⚠️ Please enter a valid number.</p> <!-- Result --> <div class="result-box" id="resultBox"> <div class="result-label">Result</div> <div class="result-value" id="resultValue">—</div> <div class="result-unit" id="resultUnit"></div> </div> </div> <script> const KM_TO_MI = 0.621371; const MI_TO_KM = 1.60934; function convert() { const input = document.getElementById('numInput'); const errorMsg = document.getElementById('errorMsg'); const resultBox = document.getElementById('resultBox'); const resultVal = document.getElementById('resultValue'); const resultUnit= document.getElementById('resultUnit'); // Hide previous results/errors errorMsg.style.display = 'none'; resultBox.style.display = 'none'; const value = parseFloat(input.value); // Validation if (input.value.trim() === '' || isNaN(value)) { errorMsg.style.display = 'block'; return; } // Get selected direction const direction = document.querySelector('input[name="direction"]:checked').value; let converted, fromUnit, toUnit; if (direction === 'kmToMi') { converted = value * KM_TO_MI; fromUnit = 'km'; toUnit = 'miles'; } else { converted = value * MI_TO_KM; fromUnit = 'miles'; toUnit = 'km'; } // Round to 4 decimal places, strip trailing zeros const rounded = parseFloat(converted.toFixed(4)); // Display result resultVal.textContent = rounded.toLocaleString(); resultUnit.textContent = `${value} ${fromUnit} = ${rounded.toLocaleString()} ${toUnit}`; resultBox.style.display = 'block'; } // Allow pressing Enter to convert document.getElementById('numInput').addEventListener('keydown', function(e) { if (e.key === 'Enter') convert(); }); </script> </body> </html>
