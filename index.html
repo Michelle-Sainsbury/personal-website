@@ -1,0 +1,1489 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                      <!DOCTYPE html>
+<html lang="en">
+<style>
+  /* ========================================
+     MICHELLE SAINSBURY — PORTFOLIO V2
+     GLOBAL STYLES
+  ======================================== */
+
+  :root {
+    --navy: #12355b;
+    --navy-dark: #0a2540;
+    --navy-light: #eaf1f7;
+    --gold: #c6943c;
+    --gold-dark: #9b6d22;
+    --cream: #f8f5ef;
+    --white: #ffffff;
+    --text: #25313d;
+    --text-light: #5d6873;
+    --border: #d9e0e6;
+    --shadow: 0 14px 35px rgba(10, 37, 64, 0.12);
+    --shadow-small: 0 8px 22px rgba(10, 37, 64, 0.09);
+    --radius: 16px;
+    --max-width: 1180px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin-top: 0;
+    color: var(--navy-dark);
+    line-height: 1.2;
+  }
+
+  h1 {
+    max-width: 900px;
+    margin-bottom: 24px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.7rem, 7vw, 5.7rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+
+  h2 {
+    max-width: 820px;
+    margin-bottom: 30px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    margin-bottom: 14px;
+    font-size: 1.35rem;
+  }
+
+  section {
+    padding: 90px 24px;
+    scroll-margin-top: 85px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .section-label,
+  .eyebrow {
+    margin-bottom: 14px;
+    color: var(--gold-dark);
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* ========================================
+     HEADER AND NAVIGATION
+  ======================================== */
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(18, 53, 91, 0.12);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 4px 18px rgba(10, 37, 64, 0.06);
+  }
+
+  .header-container {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .site-logo {
+    color: var(--navy-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.22rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .main-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 26px;
+  }
+
+  .main-navigation a {
+    position: relative;
+    color: var(--navy);
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+
+  .main-navigation a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+  }
+
+  .main-navigation a:hover::after,
+  .main-navigation a:focus::after {
+    transform: scaleX(1);
+  }
+
+  /* ========================================
+     HERO SECTION
+  ======================================== */
+
+  .hero-section {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    background:
+      radial-gradient(
+        circle at 88% 18%,
+        rgba(198, 148, 60, 0.22),
+        transparent 31%
+      ),
+      linear-gradient(
+        135deg,
+        #f7f1e6 0%,
+        #ffffff 48%,
+        #e9f1f7 100%
+      );
+  }
+
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 380px;
+    height: 380px;
+    border: 1px solid rgba(18, 53, 91, 0.15);
+    border-radius: 50%;
+  }
+
+  .hero-section::after {
+    content: "";
+    position: absolute;
+    right: 10%;
+    bottom: -200px;
+    width: 470px;
+    height: 470px;
+    border: 1px solid rgba(198, 148, 60, 0.2);
+    border-radius: 50%;
+  }
+
+  .hero-container {
+  position: relative;
+z-index: 2;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 50px; 
+  }
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-image-wrapper {
+  flex: 0 0 320px;
+  max-width: 30%;
+  margin-top: -110px;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: 18px;
+}
+  .hero-introduction {
+    max-width: 800px;
+    margin-bottom: 28px;
+    color: var(--navy);
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.55;
+  }
+
+  .hero-supporting-text {
+    max-width: 760px;
+    margin-bottom: 36px;
+    color: var(--text-light);
+    font-size: 1.05rem;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 24px;
+    border: 2px solid var(--navy);
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .primary-button {
+    background: var(--navy);
+    color: var(--white);
+    box-shadow: var(--shadow-small);
+  }
+
+  .secondary-button {
+    background: transparent;
+    color: var(--navy);
+  }
+
+  .primary-button:hover,
+  .secondary-button:hover {
+    transform: translateY(-3px);
+  }
+
+  .primary-button:hover {
+    background: var(--navy-dark);
+    box-shadow: var(--shadow);
+  }
+
+  .secondary-button:hover {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  /* ========================================
+     ABOUT SECTION
+  ======================================== */
+
+  .about-section {
+    background: var(--white);
+  }
+
+  .about-section .container {
+    max-width: 900px;
+  }
+
+  .about-section p:not(.section-label) {
+    color: var(--text-light);
+    font-size: 1.08rem;
+  }
+
+  .about-section p:last-child {
+    margin-bottom: 0;
+    padding-left: 22px;
+    border-left: 4px solid var(--gold);
+    color: var(--navy-dark);
+    font-weight: 700;
+  }
+  /* ========================================
+     LEADERSHIP STORY
+  ======================================== */
+
+  .leadership-story-section {
+    background: var(--cream);
+  }
+
+  .story-timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+  }
+
+  .story-item {
+    position: relative;
+    min-height: 100%;
+    padding: 34px;
+    border: 1px solid rgba(18, 53, 91, 0.12);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow-small);
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .story-item:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow);
+  }
+
+  .story-number {
+    margin-bottom: 24px;
+    color: var(--gold);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .story-item p:last-child {
+    margin-bottom: 0;
+    color: var(--text-light);
+  }
+
+  /* ========================================
+     LEADERSHIP PHILOSOPHY
+  ======================================== */
+
+  .leadership-philosophy-section {
+    position: relative;
+    overflow: hidden;
+    background: var(--navy-dark);
+    color: var(--white);
+  }
+
+  .leadership-philosophy-section::after {
+    content: "“";
+    position: absolute;
+    top: -60px;
+    right: 6%;
+    color: rgba(255, 255, 255, 0.05);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 26rem;
+    line-height: 1;
+  }
+
+  .leadership-philosophy-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 980px;
+  }
+
+  .leadership-philosophy-section h2 {
+    color: var(--white);
+  }
+
+  .leadership-philosophy-section .section-label {
+    color: #e4bd72;
+  }
+
+  .leadership-philosophy-section blockquote {
+    margin: 35px 0;
+    padding: 10px 0 10px 28px;
+    border-left: 5px solid var(--gold);
+    color: var(--white);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.45rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .leadership-philosophy-section p:not(.section-label) {
+    max-width: 850px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* ========================================
+     WHAT I BRING
+  ======================================== */
+
+  .what-i-bring-section {
+    background: var(--white);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .strength-card {
+    position: relative;
+    min-height: 290px;
+    overflow: hidden;
+    padding: 38px 32px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow-small);
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .strength-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 6px;
+    background: linear-gradient(
+      90deg,
+      var(--navy),
+      var(--gold)
+    );
+  }
+
+  .strength-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(198, 148, 60, 0.6);
+    box-shadow: var(--shadow);
+  }
+
+  .strength-card h3 {
+    margin-top: 12px;
+  }
+
+  .strength-card p {
+    margin-bottom: 0;
+    color: var(--text-light);
+  }
+
+  /* ========================================
+     LEADERSHIP IMPACT
+  ======================================== */
+
+  .leadership-impact-section {
+    background: var(--navy-light);
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 48px;
+  }
+
+  .impact-item {
+    position: relative;
+    padding: 32px 32px 32px 76px;
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow-small);
+  }
+
+  .impact-item::before {
+    content: "✓";
+    position: absolute;
+    top: 32px;
+    left: 30px;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 900;
+  }
+
+  .impact-item p {
+    margin-bottom: 0;
+    color: var(--text-light);
+  }
+
+  /* ========================================
+     LEADERSHIP MEETS INNOVATION
+  ======================================== */
+
+  .innovation-section {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(
+        135deg,
+        var(--cream) 0%,
+        var(--white) 100%
+      );
+  }
+
+  .innovation-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 9px;
+    height: 100%;
+    background: linear-gradient(
+      var(--navy),
+      var(--gold)
+    );
+  }
+
+  .innovation-section .container {
+    max-width: 940px;
+  }
+
+  .innovation-section p:not(.section-label) {
+    color: var(--text-light);
+    font-size: 1.07rem;
+  }
+
+  .innovation-section p:last-child {
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding: 26px 30px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 700;
+    box-shadow: var(--shadow-small);
+  }
+  /* ========================================
+     PROFESSIONAL BACKGROUND
+  ======================================== */
+
+  .professional-background-section {
+    background: var(--white);
+  }
+
+  .professional-background-section > .container > p:not(.section-label) {
+    max-width: 870px;
+    color: var(--text-light);
+    font-size: 1.06rem;
+  }
+
+  .background-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 45px;
+  }
+
+  .background-column {
+    padding: 36px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--cream);
+  }
+
+  .background-column ul {
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .background-column li {
+    position: relative;
+    margin-bottom: 12px;
+    padding-left: 27px;
+    color: var(--text-light);
+  }
+
+  .background-column li::before {
+    content: "•";
+    position: absolute;
+    top: -2px;
+    left: 3px;
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-weight: 900;
+  }
+
+  /* ========================================
+     CURRENT JOURNEY
+  ======================================== */
+
+  .current-journey-section {
+    background:
+      linear-gradient(
+        135deg,
+        var(--navy-dark),
+        var(--navy)
+      );
+    color: var(--white);
+  }
+
+  .current-journey-section .container {
+    max-width: 920px;
+  }
+
+  .current-journey-section h2 {
+    color: var(--white);
+  }
+
+  .current-journey-section .section-label {
+    color: #e4bd72;
+  }
+
+  .current-journey-section p:not(.section-label) {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.07rem;
+  }
+
+  /* ========================================
+     CONTACT SECTION
+  ======================================== */
+
+  .contact-section {
+    text-align: center;
+    background:
+      radial-gradient(
+        circle at center top,
+        rgba(198, 148, 60, 0.18),
+        transparent 38%
+      ),
+      var(--cream);
+  }
+
+  .contact-section .container {
+    max-width: 850px;
+  }
+
+  .contact-section h2 {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .contact-section p:not(.section-label) {
+    max-width: 760px;
+    margin-right: auto;
+    margin-bottom: 34px;
+    margin-left: auto;
+    color: var(--text-light);
+    font-size: 1.08rem;
+  }
+
+  .contact-actions {
+    justify-content: center;
+  }
+
+  /* ========================================
+     FOOTER
+  ======================================== */
+
+  .site-footer {
+    padding: 48px 24px;
+    background: #071b2e;
+    color: rgba(255, 255, 255, 0.76);
+    text-align: center;
+  }
+
+  .site-footer p {
+    margin-bottom: 6px;
+  }
+
+  .site-footer p:first-child {
+    color: var(--white);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .site-footer p:nth-child(3) {
+    color: #e4bd72;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  .site-footer p:last-child {
+    margin-top: 22px;
+    margin-bottom: 0;
+    font-size: 0.82rem;
+  }
+
+  /* ========================================
+     TABLET RESPONSIVE STYLES
+  ======================================== */
+
+  @media (max-width: 900px) {
+    section {
+      padding: 75px 22px;
+    }
+
+    .header-container {
+      padding: 12px 20px;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .main-navigation {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+    }
+
+    .main-navigation a {
+      font-size: 0.84rem;
+    }
+
+    .story-timeline,
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .impact-grid,
+    .background-columns {
+      grid-template-columns: 1fr;
+    }
+
+    .story-item,
+    .strength-card {
+      min-height: auto;
+    }
+
+    .hero-section {
+      min-height: auto;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+
+  /* ========================================
+     PHONE RESPONSIVE STYLES
+  ======================================== */
+
+  @media (max-width: 600px) {
+    body {
+      font-size: 16px;
+    }
+
+    section {
+      padding: 62px 18px;
+    }
+
+    .site-logo {
+      font-size: 1.06rem;
+    }
+
+    .main-navigation {
+      display: none;
+    }
+
+    .header-container {
+      min-height: 66px;
+      justify-content: center;
+    }
+
+    .hero-section {
+      padding-top: 78px;
+      padding-bottom: 78px;
+    }
+
+    .hero-actions,
+    .contact-actions {
+      flex-direction: column;
+    }
+
+    .primary-button,
+    .secondary-button {
+      width: 100%;
+    }
+
+    .story-item,
+    .strength-card,
+    .background-column {
+      padding: 28px 24px;
+    }
+
+    .impact-item {
+      padding: 72px 24px 27px;
+    }
+
+    .impact-item::before {
+      top: 27px;
+      left: 24px;
+    }
+
+    .leadership-philosophy-section blockquote {
+      padding-left: 20px;
+    }
+
+    .innovation-section::before {
+      width: 6px;
+    }
+  }
+
+  /* ========================================
+     ACCESSIBILITY
+  ======================================== */
+
+  a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+    }
+  }
+</style>
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Michelle Sainsbury is a senior housing and human services executive combining deeply seasoned leadership with emerging technology skills to strengthen organizations and create lasting community impact."
+  >
+
+  <title>
+    Michelle Sainsbury | Housing & Human Services Executive
+  </title>
+</head>
+
+<body>
+
+  <!-- ===== SITE HEADER ===== -->
+
+  <header class="site-header">
+
+    <div class="container header-container">
+
+      <a href="#home" class="site-logo">
+        Michelle Sainsbury
+      </a>
+
+      <nav class="main-navigation" aria-label="Main navigation">
+
+        <a href="#about">About</a>
+
+        <a href="#leadership-story">Leadership Story</a>
+
+        <a href="#impact">Impact</a>
+
+        <a href="#background">Background</a>
+
+        <a href="#contact">Contact</a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- ===== HERO SECTION ===== -->
+
+    <section id="home" class="hero-section">
+
+      <div class="container hero-container">
+        <div class="hero-text">
+
+        <p class="eyebrow">
+          Senior Housing & Human Services Executive
+        </p>
+
+        <h1>
+          Transforming Complex Challenges Into Meaningful Impact.
+        </h1>
+
+        <p class="hero-introduction">
+          I bring more than two decades of leadership across housing,
+          homelessness, behavioral health, supportive services, shelter
+          operations, and nonprofit program development.
+        </p>
+
+        <p class="hero-supporting-text">
+          My work is grounded in strategic thinking, compassionate
+          leadership, operational discipline, and the belief that strong
+          systems should help people—not create additional barriers for them.
+        </p>
+
+        <div class="hero-actions">
+
+          <a href="#impact" class="primary-button">
+            Explore My Leadership Impact
+          </a>
+
+          <a href="#contact" class="secondary-button">
+            Connect With Me
+          </a>
+
+        </div>
+</div>
+<div class="hero-image-wrapper">
+
+    <img src="images/michelle-headshot.png"
+         alt="Michelle Sainsbury"
+         class="hero-image">
+
+</div>
+      </div>
+
+    </section>
+
+
+    <!-- ===== ABOUT SECTION ===== -->
+
+    <section id="about" class="about-section">
+
+      <div class="container">
+
+        <p class="section-label">
+          About Me
+        </p>
+
+        <h2>
+          Leadership Built Through Service, Strategy, and Experience
+        </h2>
+
+        <p>
+          Throughout my career, I have led programs serving individuals,
+          families, veterans, and communities experiencing homelessness,
+          housing instability, behavioral health challenges, and other
+          complex barriers.
+        </p>
+
+        <p>
+          I am frequently called upon when programs require stabilization,
+          stronger systems, clearer direction, or a leader who can bring
+          people together around a shared goal.
+        </p>
+
+        <p>
+          I combine deeply seasoned, battle-tested leadership with the
+          forward-looking technical perspective needed to address today’s
+          most complex community challenges.
+        </p>
+
+      </div>
+
+    </section>
+       <!-- ===== LEADERSHIP STORY ===== -->
+   
+   <section id="leadership-story" class="leadership-story-section">
+     
+     <div class="container">
+       
+       <p class="section-label">
+         My Leadership Story
+       </p>
+       
+       <h2>
+         The Experiences That Shaped How I Lead
+       </h2>
+       
+       <div class="story-timeline">
+         
+         <article class="story-item">
+           
+           <p class="story-number">01</p>
+           
+           <h3>
+             Choosing a Career in Human Services
+           </h3>
+           
+           <p>
+             I chose a career centered on service because I wanted my work
+             to have meaning. That decision became a long-term commitment
+             to strengthening programs, supporting vulnerable populations,
+             and creating systems that respond to people with dignity.
+           </p>
+           
+         </article>
+         
+         
+         <article class="story-item">
+           
+           <p class="story-number">02</p>
+           
+           <h3>
+             Turning Personal Loss Into Purpose
+           </h3>
+           
+           <p>
+             Experiencing significant personal loss deepened my empathy,
+             resilience, and understanding of how life-changing events can
+             affect individuals and families. It strengthened my commitment
+             to lead with humanity while maintaining clarity and direction.
+           </p>
+           
+         </article>
+         
+         
+         <article class="story-item">
+           
+           <p class="story-number">03</p>
+           
+           <h3>
+             Returning to Learn and Embrace Technology
+           </h3>
+           
+           <p>
+             Joining Pursuit’s Native AI Builder Program represents my
+             decision to continue growing, challenge myself, and explore how
+             emerging technology can help nonprofit and housing organizations
+             improve services without replacing human judgment.
+           </p>
+           
+         </article>
+         
+       </div>
+       
+     </div>
+     
+   </section>
+   
+   
+   <!-- ===== LEADERSHIP PHILOSOPHY ===== -->
+   
+   <section id="philosophy" class="leadership-philosophy-section">
+     
+     <div class="container">
+       
+       <p class="section-label">
+         Leadership Philosophy
+       </p>
+       
+       <h2>
+         Leadership Is Both Strategic and Human
+       </h2>
+       
+       <blockquote>
+         Strong leadership creates clarity during uncertainty, builds systems
+         that support people, and moves organizations beyond immediate
+         problems toward sustainable results.
+       </blockquote>
+       
+       <p>
+         I believe leaders must be willing to listen carefully, make difficult
+         decisions, communicate expectations clearly, and remain accountable
+         for both outcomes and organizational culture.
+       </p>
+       
+       <p>
+         My approach is prevention-driven. I look beyond the immediate issue
+         to identify patterns, operational gaps, and underlying conditions
+         that may prevent an organization from achieving its goals.
+       </p>
+       
+     </div>
+     
+   </section>
+   
+   
+   <!-- ===== WHAT I BRING ===== -->
+   
+   <section id="strengths" class="what-i-bring-section">
+     
+     <div class="container">
+       
+       <p class="section-label">
+         What I Bring
+       </p>
+       
+       <h2>
+         Three Strengths That Define My Leadership
+       </h2>
+       
+       <div class="cards">
+         
+         <article class="strength-card">
+           
+           <h3>
+             Strategic Problem-Solving
+           </h3>
+           
+           <p>
+             I quickly identify patterns, clarify the real problem, and
+             develop practical strategies that move teams from uncertainty
+             toward stronger outcomes.
+           </p>
+           
+         </article>
+         
+         
+         <article class="strength-card">
+           
+           <h3>
+             Organizational Stabilization
+           </h3>
+           
+           <p>
+             I bring structure to complex environments by strengthening
+             operations, clarifying accountability, improving communication,
+             and rebuilding confidence across teams.
+           </p>
+           
+         </article>
+         
+         
+         <article class="strength-card">
+           
+           <h3>
+             Mission-Driven Innovation
+           </h3>
+           
+           <p>
+             I connect experienced leadership with emerging technology to
+             help organizations improve their systems while protecting
+             dignity, trust, and human judgment.
+           </p>
+           
+         </article>
+         
+       </div>
+       
+     </div>
+     
+   </section>
+   
+   
+   <!-- ===== LEADERSHIP IMPACT ===== -->
+   
+   <section id="impact" class="leadership-impact-section">
+     
+     <div class="container">
+       
+       <p class="section-label">
+         Leadership Impact
+       </p>
+       
+       <h2>
+         Building Stronger Programs, Teams, and Systems
+       </h2>
+       
+       <div class="impact-grid">
+         
+         <article class="impact-item">
+           
+           <h3>
+             Program Development
+           </h3>
+           
+           <p>
+             Developed and strengthened housing, shelter, supportive service,
+             and behavioral health programs designed to respond to complex
+             community needs.
+           </p>
+           
+         </article>
+         
+         
+         <article class="impact-item">
+           
+           <h3>
+             Operational Leadership
+           </h3>
+           
+           <p>
+             Directed multidisciplinary teams, strengthened service delivery,
+             addressed operational challenges, and supported programs through
+             periods of change and uncertainty.
+           </p>
+           
+         </article>
+         
+         
+         <article class="impact-item">
+           
+           <h3>
+             Stakeholder Collaboration
+           </h3>
+           
+           <p>
+             Built productive relationships with government agencies,
+             nonprofit partners, funders, community stakeholders, staff,
+             residents, and service providers.
+           </p>
+           
+         </article>
+         
+         
+         <article class="impact-item">
+           
+           <h3>
+             Crisis and Incident Management
+           </h3>
+           
+           <p>
+             Led teams through high-pressure situations requiring calm
+             decision-making, clear communication, risk assessment, and
+             coordinated action.
+           </p>
+           
+         </article>
+         
+       </div>
+       
+     </div>
+     
+   </section>
+   
+   
+   <!-- ===== LEADERSHIP AND INNOVATION ===== -->
+   
+   <section id="innovation" class="innovation-section">
+     
+     <div class="container">
+       
+       <p class="section-label">
+         Where Leadership Meets Innovation
+       </p>
+       
+       <h2>
+         Applying Emerging Technology With Purpose
+       </h2>
+       
+       <p>
+         After decades of leadership in housing and human services, I chose
+         to study artificial intelligence because nonprofit organizations
+         cannot afford to be excluded from the technologies shaping the
+         future.
+       </p>
+       
+       <p>
+         I am particularly interested in how AI can help organizations
+         improve decision-making, reduce administrative burden, identify
+         service gaps, strengthen program performance, and make important
+         information more accessible.
+       </p>
+       
+       <p>
+         I do not believe AI should replace tenant advocates, social-service
+         professionals, or experienced human judgment. Technology should
+         support people, improve systems, and expand an organization’s
+         capacity to serve its community responsibly.
+       </p>
+       
+     </div>
+     
+   </section>
+       <!-- ===== PROFESSIONAL BACKGROUND ===== -->
+
+    <section id="background" class="professional-background-section">
+
+      <div class="container">
+
+        <p class="section-label">
+          Professional Background
+        </p>
+
+        <h2>
+          Experience Across Housing and Human Services
+        </h2>
+
+        <p>
+          My professional background includes executive and program leadership
+          across nonprofit housing, homelessness services, shelter operations,
+          behavioral health, supportive housing, affordable housing, crisis
+          intervention, and community-based services.
+        </p>
+
+        <div class="background-columns">
+
+          <article class="background-column">
+
+            <h3>
+              Areas of Leadership
+            </h3>
+
+            <ul>
+              <li>Supportive and affordable housing</li>
+              <li>Homeless shelter operations</li>
+              <li>Behavioral health services</li>
+              <li>Program development and management</li>
+              <li>Strategic and operational planning</li>
+              <li>Staff development and team leadership</li>
+              <li>Crisis and incident management</li>
+              <li>Government and community partnerships</li>
+            </ul>
+
+          </article>
+
+
+          <article class="background-column">
+
+            <h3>
+              Housing and Service Systems
+            </h3>
+
+            <ul>
+              <li>Section 8</li>
+              <li>NYCHA</li>
+              <li>HASA</li>
+              <li>Supportive housing subsidies</li>
+              <li>HUD Continuum of Care</li>
+              <li>Shelter and homelessness services</li>
+              <li>Housing placement and stabilization</li>
+              <li>Resident-centered service coordination</li>
+            </ul>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===== CURRENT JOURNEY ===== -->
+
+    <section id="pursuit" class="current-journey-section">
+
+      <div class="container">
+
+        <p class="section-label">
+          My Current Journey
+        </p>
+
+        <h2>
+          Continuing to Learn, Build, and Lead
+        </h2>
+
+        <p>
+          Through Pursuit’s Native AI Builder Program, I am developing a deeper
+          understanding of artificial intelligence, website development,
+          product thinking, responsible technology, GitHub, and digital tools.
+        </p>
+
+        <p>
+          This experience is expanding how I think about organizational
+          challenges and helping me explore new ways to support nonprofit
+          leaders, housing organizations, and community-serving institutions.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===== CONTACT SECTION ===== -->
+
+    <section id="contact" class="contact-section">
+
+      <div class="container">
+
+        <p class="section-label">
+          Let’s Connect
+        </p>
+
+        <h2>
+          Let’s Build Stronger Systems and Better Outcomes
+        </h2>
+
+        <p>
+          I welcome conversations with nonprofit leaders, affordable housing
+          organizations, community partners, and mission-driven teams seeking
+          experienced leadership, strategic insight, or innovative solutions.
+        </p>
+
+        <div class="contact-actions">
+
+          <a
+            href="mailto:msainsbury45@gmail.com"
+            class="primary-button"
+          >
+            Email Me
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/michellesainsbury"
+            class="secondary-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Connect on LinkedIn
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ===== FOOTER ===== -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <p>
+        Michelle Sainsbury
+      </p>
+
+      <p>
+        Senior Housing & Human Services Executive
+      </p>
+
+      <p>
+        Leadership • Strategy • Housing • Human Services • Innovation
+      </p>
+
+      <p>
+        &copy; 2026 Michelle Sainsbury. All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+<script src="script.js"></script>
+</body>
+
+</html>
+This is maddeing!!! i will try again in the 
+morning!!!! I can't complete the assignment weighth I've been working on for some time. I am supposed to deploy my page to Linkedin tonight and can't this is ludicrous.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
